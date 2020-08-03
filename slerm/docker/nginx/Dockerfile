@@ -1,6 +1,6 @@
-ENV FOO bar
 FROM nginx:1-alpine
 EXPOSE 80
+RUN apk add --no-cache nginx
 COPY custom.conf /etc/nginx/conf.d/
-COPY index.html /usr/share/nginx/html/
+COPY app/index.html /usr/share/nginx/html/
 CMD ["nginx", "-g", "daemon off;"]
