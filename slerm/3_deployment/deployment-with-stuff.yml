@@ -6,7 +6,7 @@ metadata:
 spec:
   replicas: 2
   selector:
-    matchLables:
+    matchLabels:
       app: my-app
   strategy:
     type: RollingUpdate
@@ -29,7 +29,7 @@ spec:
               port: 80
             failureThreshold: 3
             periodSeconds: 10
-            sucsessThreshold: 1
+            successThreshold: 1
             timeoutSeconds: 1
           livenessProbe:
             httpGet:
@@ -37,6 +37,13 @@ spec:
               port: 80
             failureThreshold: 3
             periodSeconds: 10
-            sucsessThreshold: 1
+            successThreshold: 1
             timeoutSeconds: 1
-            initealDelaySeconds: 12
+            initialDelaySeconds: 13
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
