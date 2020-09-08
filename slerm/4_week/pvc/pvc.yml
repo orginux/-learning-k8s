@@ -1,0 +1,11 @@
+---
+kind: PersistentVolumeClaim
+appVersion: v1
+metadata:
+  name: my-claim
+scec:
+  accesModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Mi
