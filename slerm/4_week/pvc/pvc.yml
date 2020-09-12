@@ -1,10 +1,10 @@
 ---
 kind: PersistentVolumeClaim
-appVersion: v1
+apiVersion: v1
 metadata:
-  name: my-claim
-scec:
-  accesModes:
+  name: fileshare
+spec:
+  accessModes:
     - ReadWriteOnce
   resources:
     requests:
