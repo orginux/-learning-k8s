@@ -1,0 +1,11 @@
+---
+stages:
+  - static analysis
+
+yamllint:
+  stage: static analysis
+  image: orginux/yamllint:1.25.0
+  script:
+    - find -type f -name '*.yml' -o -name '*.yaml' -exec yamllint {} \;
+  except:
+    - tags
