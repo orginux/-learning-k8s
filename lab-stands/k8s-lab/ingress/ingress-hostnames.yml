@@ -16,13 +16,13 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: example-service
+              serviceName: container-hostname
               servicePort: 80
           - path: /path
             backend:
-              serviceName: example-service
+              serviceName: container-hostname
               servicePort: 80
           - path: /path/long
             backend:
-              serviceName: example-service
+              serviceName: container-hostname
               servicePort: 80
