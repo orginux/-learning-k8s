@@ -1,0 +1,17 @@
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  creationTimestamp: null
+  name: demo-pdb
+spec:
+  minAvailable: 3
+  # maxUnavailable: 10%
+  selector:
+    matchLabels:
+      app: demo
+status:
+  currentHealthy: 0
+  desiredHealthy: 0
+  disruptionsAllowed: 0
+  expectedPods: 0
