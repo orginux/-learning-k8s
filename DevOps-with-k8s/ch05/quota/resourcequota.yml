@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: demo-resourcequota
+  namespace: demo
+spec:
+  hard:
+    pods: "100"
+    limits.memory: "2Gi"
+status: {}
