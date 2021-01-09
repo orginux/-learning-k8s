@@ -19,9 +19,11 @@ spec:
         app: demo
     spec:
       containers:
-      - image: orginux/pod-info
-        name: pod-info
-        imagePullPolicy: Always
-        securityContext:
-          runAsUser: 1000
+        - image: orginux/pod-info
+          name: pod-info
+          imagePullPolicy: Always
+          securityContext:
+            runAsUser: 1000
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
 status: {}
