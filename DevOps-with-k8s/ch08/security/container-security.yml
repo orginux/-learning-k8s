@@ -26,4 +26,5 @@ spec:
             runAsUser: 1000
             runAsNonRoot: true
             readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
 status: {}
