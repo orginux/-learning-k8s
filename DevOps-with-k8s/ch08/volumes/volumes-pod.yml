@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: volumes-pod
+  name: volumes-pod
+spec:
+  volumes:
+    - name: demo-volume
+      emptyDir: {}
+  containers:
+    - image: alpine
+      name: volumes-pod
+      command: ['sh', '-c', 'sleep 3601']
+      volumeMounts:
+        - mountPath: /cache
+          name: demo-volume
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
