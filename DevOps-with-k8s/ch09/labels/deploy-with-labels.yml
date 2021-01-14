@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: demo
+    app: pod-info
     environment: staging
     version: v1.0
   name: demo
