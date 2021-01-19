@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: anki
+  name: anki
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: anki
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: anki
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: cloud.google.com/gke-preemptible
+                    operator: DoesNotExist
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - preference:
+                matchExpressions:
+                  - key: cloud.google.com/gke-nodepool
+                    operator: Exists
+              weight: 100
+      containers:
+        - image: orginux/pod-info
+          name: pod-info
+          resources: {}
+status: {}
