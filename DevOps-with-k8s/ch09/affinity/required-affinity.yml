@@ -4,19 +4,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: deploy-with-affinity
-  name: deploy-with-affinity
+    app: required-affinity
+  name: required-affinity
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: deploy-with-affinity
+      app: required-affinity
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: deploy-with-affinity
+        app: required-affinity
     spec:
       affinity:
         nodeAffinity:

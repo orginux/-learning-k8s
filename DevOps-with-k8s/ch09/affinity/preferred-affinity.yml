@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: preferred-affinity
+  name: preferred-affinity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: preferred-affinity
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: preferred-affinity
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: "failure-domain.beta.kubernetes.io/zone"
+                    operator: In
+                    values: ["europe-north1-a"]
+            - weight: 10
+              preference:
+                matchExpressions:
+                  - key: "failure-domain.beta.kubernetes.io/zone"
+                    operator: In
+                    values: ["europe-north1-b"]
+      containers:
+        - image: orginux/pod-info
+          name: pod-info
+          resources: {}
+status: {}
