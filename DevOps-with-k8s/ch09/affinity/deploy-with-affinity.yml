@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-with-affinity
+  name: deploy-with-affinity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-with-affinity
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-with-affinity
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: "failure-domain.beta.kubernetes.io/region"
+                    operator: In
+                    values: ["europe-north1"]
+      containers:
+        - image: orginux/pod-info
+          name: pod-info
+          resources: {}
+status: {}
