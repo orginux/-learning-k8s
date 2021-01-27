@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: preferred-pod-anti-affinity
+  name: preferred-pod-anti-affinity
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: preferred-pod-anti-affinity
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: preferred-pod-anti-affinity
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 2
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: run
+                      operator: In
+                      values:
+                        - nginx
+                topologyKey: kubernetes.io/hostname
+      containers:
+        - image: orginux/pod-info
+          name: pod-info
+          resources: {}
+status: {}
