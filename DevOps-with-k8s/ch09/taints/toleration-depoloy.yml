@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: toleration-deploy
+  name: toleration-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toleration-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: toleration-deploy
+    spec:
+      tolerations:
+        - key: dedicated
+          operator: Equal
+          value: "true"
+          effect: NoSchedule
+      containers:
+        - image: orginux/pod-info
+          name: pod-info
+          resources: {}
+status: {}
