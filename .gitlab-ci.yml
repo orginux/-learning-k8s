@@ -20,3 +20,5 @@ get version:
      - kubectl apply -f gitlab-intrgration/test-deploy/
   tags:
     - kubernetes
+  environment:
+    name: staging
