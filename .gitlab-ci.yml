@@ -18,5 +18,5 @@ get version:
      - echo $KUBECONFIG
   script:
      - kubectl get all
-  tag:
+  tags:
     - kubernetes
