@@ -1,6 +1,7 @@
 ---
 stages:
   - static analysis
+  - kubectl version
 
 yamllint:
   stage: static analysis
@@ -9,3 +10,11 @@ yamllint:
     - find -type f -name '*.yml' -o -name '*.yaml' -exec yamllint {} \;
   except:
     - tags
+
+get version:
+  stage: kubectl version
+  image: traherom/kustomize-docker
+  before_script:
+     - echo $KUBECONFIG
+  script:
+     - kubectl get all
