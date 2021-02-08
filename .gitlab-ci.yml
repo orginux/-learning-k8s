@@ -17,6 +17,6 @@ get version:
   before_script:
      - echo $KUBECONFIG
   script:
-     - kubectl get all
+     - kubectl get po
   tags:
     - kubernetes
