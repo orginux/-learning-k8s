@@ -13,10 +13,10 @@ yamllint:
 
 get version:
   stage: kubectl version
-  image: traherom/kustomize-docker
+  image: alpine/k8s
   before_script:
      - echo $KUBECONFIG
   script:
-     - kubectl get po
+     - kubectl apply -f gitlab-intrgration/test-deploy/
   tags:
     - kubernetes

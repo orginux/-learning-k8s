@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: test-integration
+  name: test-integration
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test-integration
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: test-integration
+    spec:
+      containers:
+      - image: orginux/echopod
+        name: echopod
+        resources: {}
+status: {}
