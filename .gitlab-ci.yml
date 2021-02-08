@@ -20,6 +20,7 @@ get version:
      - kubectl apply -f gitlab-intrgration/test-deploy/
   after_script:
     - kubectl get pod
+    - kubectl get svc
   tags:
     - kubernetes
   environment:
