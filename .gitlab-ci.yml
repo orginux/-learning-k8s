@@ -25,3 +25,4 @@ get version:
     - kubernetes
   environment:
     name: staging
+    url: http://35.228.94.49
