@@ -18,6 +18,8 @@ get version:
      - echo $KUBECONFIG
   script:
      - kubectl apply -f gitlab-intrgration/test-deploy/
+  after_script:
+    - kubectl get pod
   tags:
     - kubernetes
   environment:
