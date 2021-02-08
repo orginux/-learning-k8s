@@ -13,7 +13,7 @@ yamllint:
 
 get version:
   stage: kubectl version
-  image: alpine/k8s
+  image: traherom/kustomize-docker
   before_script:
      - echo $KUBECONFIG
   script:
