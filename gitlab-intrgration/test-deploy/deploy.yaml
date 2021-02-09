@@ -22,4 +22,9 @@ spec:
       - image: orginux/echopod
         name: echopod
         resources: {}
+        livenesProbe:
+          httpGet:
+            path: /
+            port: 8080
+          periodSeconds: 5
 status: {}
