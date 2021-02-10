@@ -21,7 +21,10 @@ spec:
       containers:
       - image: orginux/echopod
         name: echopod
-        resources: {}
+        resources:
+          limit:
+            cpu: 10m
+            memory: 1Mi
         livenessProbe:
           httpGet:
             path: /
