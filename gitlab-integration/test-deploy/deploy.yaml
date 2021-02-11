@@ -7,7 +7,7 @@ metadata:
     app: test-integration
   name: test-integration
 spec:
-  replicas: 10
+  replicas: 3
   selector:
     matchLabels:
       app: test-integration
