@@ -7,7 +7,7 @@ metadata:
     app: test-integration
   name: test-integration
 spec:
-  replicas: 10
+  replicas: 12
   selector:
     matchLabels:
       app: test-integration
@@ -23,8 +23,8 @@ spec:
         name: echopod
         resources:
           limits:
-            cpu: 25m
-            memory: 10Mi
+            cpu: 1m
+            memory: 1Mi
         livenessProbe:
           httpGet:
             path: /
