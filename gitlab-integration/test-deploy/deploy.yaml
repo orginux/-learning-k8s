@@ -22,7 +22,7 @@ spec:
       - image: orginux/echopod
         name: echopod
         resources:
-          limit:
+          limits:
             cpu: 10m
             memory: 1Mi
         livenessProbe:
