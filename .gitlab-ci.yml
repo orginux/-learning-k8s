@@ -18,9 +18,9 @@ get version:
     - echo $KUBECONFIG
   script:
     - kubectl apply -f gitlab-integration/test-deploy/
+    - kubectl rollout status deployments/test-integration
     - kubectl wait -f gitlab-integration/test-deploy/deploy.yaml --for condition=available
   after_script:
-    - kubectl rollout status deployments/test-integration
     - kubectl get deployments
     - kubectl get pod
     - kubectl get svc
