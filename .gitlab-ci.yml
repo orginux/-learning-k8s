@@ -17,7 +17,7 @@ get version:
   before_script:
      - echo $KUBECONFIG
   script:
-     - kubectl apply -f gitlab-intrgration/test-deploy/
+     - kubectl apply -f gitlab-integration/test-deploy/
   after_script:
     - kubectl get pod
     - kubectl get svc
