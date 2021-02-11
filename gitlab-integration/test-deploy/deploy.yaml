@@ -23,8 +23,8 @@ spec:
         name: echopod
         resources:
           limits:
-            cpu: 10m
-            memory: 1Mi
+            cpu: 25m
+            memory: 10Mi
         livenessProbe:
           httpGet:
             path: /
