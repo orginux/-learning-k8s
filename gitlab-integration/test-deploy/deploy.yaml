@@ -19,7 +19,7 @@ spec:
         app: test-integration
     spec:
       containers:
-      - image: orginux/echopod
+      - image: orginux/echopod:1.2
         name: echopod
         resources:
           limits:
