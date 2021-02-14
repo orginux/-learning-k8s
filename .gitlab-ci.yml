@@ -29,7 +29,9 @@ get version:
   script:
     - kubectl apply -f gitlab-integration/test-deploy/
     - kubectl rollout status deployments/test-integration --timeout=30s
-    - kubectl wait -f gitlab-integration/test-deploy/deploy.yaml --for condition=available
+    - kubectl wait
+        --file gitlab-integration/test-deploy/deploy.yaml
+        --for condition=available
   after_script:
     - kubectl get deployments
     - kubectl get pod
