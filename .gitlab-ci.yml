@@ -22,7 +22,7 @@ kubeval:
 
 kube-score:
   extends: .lint
-  image: zegl/kube-score
+  image: zegl/kube-score:v1.10.0
   script:
     - score gitlab-integration/test-deploy/deploy.yaml
 
