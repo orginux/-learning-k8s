@@ -3,13 +3,22 @@ stages:
   - static analysis
   - kubectl version
 
-yamllint:
+.lint:
   stage: static analysis
+  except:
+    - tags
+
+yamllint:
+  extends: .lint
   image: orginux/yamllint:1.25.0
   script:
     - find -type f -name '*.yml' -o -name '*.yaml' -exec yamllint {} \;
-  except:
-    - tags
+
+kubeval:
+  extends: .lint
+  image: orginux/kubeval
+  script:
+    - kubeval gitlab-integration/test-deploy/deploy.yaml
 
 get version:
   stage: kubectl version
