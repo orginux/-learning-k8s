@@ -19,15 +19,15 @@ spec:
         app: test-integration
     spec:
       containers:
-      - image: orginux/echopod:1.2
-        name: echopod
-        resources:
-          limits:
-            cpu: 25m
-            memory: 10Mi
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          periodSeconds: 5
+        - image: orginux/echopod:1.2
+          name: echopod
+          resources:
+            limits:
+              cpu: 25m
+              memory: 10Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 5
 status: {}
