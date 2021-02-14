@@ -24,8 +24,7 @@ kube-score:
   extends: .lint
   image: zegl/kube-score:v1.10.1-kustomize
   script:
-    - ls -l gitlab-integration/test-deploy/deploy.yaml
-    - score gitlab-integration/test-deploy/deploy.yaml
+    - kube-score score gitlab-integration/test-deploy/deploy.yaml
 
 get version:
   stage: kubectl version
