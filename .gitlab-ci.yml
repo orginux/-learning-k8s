@@ -18,6 +18,7 @@ kubeval:
   extends: .lint
   image: orginux/kubeval
   script:
+    - ls -l gitlab-integration/test-deploy/deploy.yaml
     - kubeval gitlab-integration/test-deploy/deploy.yaml
 
 get version:
