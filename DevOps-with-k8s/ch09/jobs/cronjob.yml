@@ -1,0 +1,22 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: demo-cron
+spec:
+  schedule: "*/1 * * * *"
+  successfulJobsHistoryLimit: 0
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: demo-cron
+              image: busybox
+              imagePullPolicy: IfNotPresent
+              args:
+                - /bin/sh
+                - -c
+                - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
