@@ -21,7 +21,11 @@ spec:
       containers:
         - image: orginux/echopod:1.2
           name: echopod
+          imagePullPolicy: IfNotPresent
           resources:
+            requests:
+              memory: 7Mi
+              cpu: 25m
             limits:
               cpu: 25m
               memory: 10Mi
@@ -32,6 +36,7 @@ spec:
             periodSeconds: 5
           securityContext:
             runAsUser: 1000
+            runAsGroup: 1000
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
 status: {}
