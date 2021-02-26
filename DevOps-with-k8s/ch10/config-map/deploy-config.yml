@@ -22,10 +22,7 @@ spec:
         - image: cloudnatived/demo:hello-config-env
           name: demo
           resources: {}
-          env:
-            - name: GREETING
-              valueFrom:
-                configMapKeyRef:
-                  name: demo-config
-                  key: greeting
+          envFrom:
+            - configMapRef:
+                name: demo-config
 status: {}

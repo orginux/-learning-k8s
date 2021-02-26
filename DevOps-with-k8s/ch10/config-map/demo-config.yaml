@@ -4,4 +4,4 @@ kind: ConfigMap
 metadata:
   name: demo-config
 data:
-  greeting: Hola
+  GREETING: Hola
