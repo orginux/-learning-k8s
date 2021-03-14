@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-config-file
+  name: deploy-config-file
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-config-file
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-config-file
+    spec:
+      containers:
+        - image: cloudnatived/demo:hello-config-file
+          name: demo
+          volumeMounts:
+            - mountPath: /config/
+              name: demo-config-volume
+              readOnly: true
+      volumes:
+        - name: demo-config-volume
+          configMap:
+            name: demo-config-file
+            items:
+              - key: config
+                path: demo.yaml
+status: {}
