@@ -5,6 +5,7 @@ metadata:
   labels:
     app: deploy-np
   name: deploy-np
+  namespace: np-service-demo
 spec:
   ports:
     - port: 80
