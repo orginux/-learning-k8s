@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-np
+  name: deploy-np
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-np
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-np
+    spec:
+      containers:
+        - image: nginx
+          name: nginx
+          resources: {}
+status: {}
