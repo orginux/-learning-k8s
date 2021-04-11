@@ -1,6 +1,6 @@
 # Manual Cluster Update
-## On Control Plane node
 
+## Enviroment
 ```yaml
 Current version: 1.19.9
 New verion: 1.20.5
@@ -10,6 +10,8 @@ Worker node:
   - k8s-lab-2
 Without package manager: true
 ```
+
+## On Control Plane node
 
 ```bash
 mkdir binaries && cd binaries
