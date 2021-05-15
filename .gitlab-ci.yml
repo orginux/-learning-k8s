@@ -7,5 +7,3 @@ test:
   script:
     - echo test
     - kubectl cluster-info
-  tags:
-    - tmp-cluster-1
