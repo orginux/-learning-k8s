@@ -2,7 +2,7 @@ stages:
   - test
 
 test:
-  image: lachlanevenson/k8s-kubectl:latest
+  image: dtzar/helm-kubectl:3.4.1
   stage: test
   script:
     - echo test
