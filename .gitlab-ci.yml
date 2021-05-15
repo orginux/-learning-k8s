@@ -9,3 +9,5 @@ test:
     - kubectl cluster-info
   environment:
     name: staging
+  tags:
+    - kubernetes
