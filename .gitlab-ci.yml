@@ -7,8 +7,7 @@ test:
   variables:
     DEPLOY_NAME: my-deploy
   script:
-    - kubectl apply deployment $DEPLOY_NAME --image=orginux/echopod
-    - kubectl scale deployment $DEPLOY_NAME --replicas=5
+    - kubectl scale deployment $DEPLOY_NAME --replicas=7
   environment:
     name: staging
   tags:
