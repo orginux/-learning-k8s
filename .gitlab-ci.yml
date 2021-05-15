@@ -5,7 +5,7 @@ test:
   image: traherom/kustomize-docker
   stage: test
   variables:
-    NAME: my-deploy
+    DEPLOY_NAME: my-deploy
   script:
     - kubectl create deployment $DEPLOY_NAME --image=orginux/echopod
     - kubectl scale deployment $DEPLOY_NAME --replicas=5
