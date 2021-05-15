@@ -1,50 +1,9 @@
----
 stages:
-  - static analysis
-  - kubectl version
+  - test
 
-.lint:
-  stage: static analysis
-  except:
-    - tags
-
-yamllint:
-  extends: .lint
-  image: orginux/yamllint:1.25.0
+test:
+  image: lachlanevenson/k8s-kubectl:latest
+  stage: test
   script:
-    - find -type f -name '*.yml' -o -name '*.yaml' -exec yamllint {} \;
-
-kubeval:
-  extends: .lint
-  image: orginux/kubeval
-  script:
-    - kubeval gitlab-integration/test-deploy/deploy.yaml
-
-kube-score:
-  extends: .lint
-  image: zegl/kube-score:v1.10.1-kustomize
-  script:
-    - kube-score score --output-format ci
-        gitlab-integration/test-deploy/deploy.yaml
-  allow_failure: true
-
-get version:
-  stage: kubectl version
-  image: traherom/kustomize-docker
-  before_script:
-    - echo $KUBECONFIG
-  script:
-    - kubectl apply -f gitlab-integration/test-deploy/
-    - kubectl rollout status deployments/test-integration --timeout=30s
-    - kubectl wait
-        -f gitlab-integration/test-deploy/deploy.yaml
-        --for condition=available
-  after_script:
-    - kubectl get deployments
-    - kubectl get pod
-    - kubectl get svc
-  tags:
-    - kubernetes
-  environment:
-    name: staging
-    url: http://35.228.94.49
+    - echo test
+    - kubectl cluster-info
