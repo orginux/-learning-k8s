@@ -5,8 +5,8 @@ test:
   image: traherom/kustomize-docker
   stage: test
   script:
-    - echo test
-    - kubectl cluster-info
+    - kubectl create deployment $DEPLOY_NAME --image=orginux/echopod
+    - kubectl scale deployment $DEPLOY_NAME --replicas=5
   environment:
     name: staging
   tags:
